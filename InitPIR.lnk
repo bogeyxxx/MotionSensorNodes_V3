@@ -1,0 +1,21 @@
+-myux
+-i D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\InitPIR.hex
+-Y
+-z
+-b HOME = 0x0000
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k C:\Program Files (x86)\SDCC\bin\..\lib\small
+-l f930s.lib
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\MainPIRv2.rel
+D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\Config.rel
+D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\SPIOnRF24.rel
+D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\SleepMode.rel
+D:\Projects\Project MotionSense\C Codes\PrjMotionSenseNodes\InitPIR.rel
+
+-e

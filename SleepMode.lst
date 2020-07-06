@@ -1,0 +1,1483 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
+                              4 ; This file was generated Mon Mar 24 13:04:13 2014
+                              5 ;--------------------------------------------------------
+                              6 	.module SleepMode
+                              7 	.optsdcc -mmcs51 --model-small
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _RTC_Write_PARM_2
+                             13 	.globl __SPKR
+                             14 	.globl _PBSW
+                             15 	.globl _INT
+                             16 	.globl _P2_0
+                             17 	.globl _P2_1
+                             18 	.globl _P2_2
+                             19 	.globl _P2_3
+                             20 	.globl _P2_4
+                             21 	.globl _P2_5
+                             22 	.globl _P2_6
+                             23 	.globl _P2_7
+                             24 	.globl _P1_0
+                             25 	.globl _P1_1
+                             26 	.globl _P1_2
+                             27 	.globl _P1_3
+                             28 	.globl _P1_4
+                             29 	.globl _P1_5
+                             30 	.globl _P1_6
+                             31 	.globl _P1_7
+                             32 	.globl _P0_0
+                             33 	.globl _P0_1
+                             34 	.globl _P0_2
+                             35 	.globl _P0_3
+                             36 	.globl _P0_4
+                             37 	.globl _P0_5
+                             38 	.globl _P0_6
+                             39 	.globl _P0_7
+                             40 	.globl _SPI0EN
+                             41 	.globl _TXBMT0
+                             42 	.globl _NSS0MD0
+                             43 	.globl _NSS0MD1
+                             44 	.globl _RXOVRN0
+                             45 	.globl _MODF0
+                             46 	.globl _WCOL0
+                             47 	.globl _SPIF0
+                             48 	.globl _AD0CM0
+                             49 	.globl _AD0CM1
+                             50 	.globl _AD0CM2
+                             51 	.globl _AD0WINT
+                             52 	.globl _AD0BUSY
+                             53 	.globl _AD0INT
+                             54 	.globl _BURSTEN
+                             55 	.globl _AD0EN
+                             56 	.globl _CCF0
+                             57 	.globl _CCF1
+                             58 	.globl _CCF2
+                             59 	.globl _CCF3
+                             60 	.globl _CCF4
+                             61 	.globl _CCF5
+                             62 	.globl _CR
+                             63 	.globl _CF
+                             64 	.globl _P
+                             65 	.globl _F1
+                             66 	.globl _OV
+                             67 	.globl _RS0
+                             68 	.globl _RS1
+                             69 	.globl _F0
+                             70 	.globl _AC
+                             71 	.globl _CY
+                             72 	.globl _T2XCLK
+                             73 	.globl _T2RCLK
+                             74 	.globl _TR2
+                             75 	.globl _T2SPLIT
+                             76 	.globl _TF2CEN
+                             77 	.globl _TF2LEN
+                             78 	.globl _TF2L
+                             79 	.globl _TF2H
+                             80 	.globl _SI
+                             81 	.globl _ACK
+                             82 	.globl _ARBLOST
+                             83 	.globl _ACKRQ
+                             84 	.globl _STO
+                             85 	.globl _STA
+                             86 	.globl _TXMODE
+                             87 	.globl _MASTER
+                             88 	.globl _PX0
+                             89 	.globl _PT0
+                             90 	.globl _PX1
+                             91 	.globl _PT1
+                             92 	.globl _PS0
+                             93 	.globl _PT2
+                             94 	.globl _PSPI0
+                             95 	.globl _SPI1EN
+                             96 	.globl _TXBMT1
+                             97 	.globl _NSS1MD0
+                             98 	.globl _NSS1MD1
+                             99 	.globl _RXOVRN1
+                            100 	.globl _MODF1
+                            101 	.globl _WCOL1
+                            102 	.globl _SPIF1
+                            103 	.globl _EX0
+                            104 	.globl _ET0
+                            105 	.globl _EX1
+                            106 	.globl _ET1
+                            107 	.globl _ES0
+                            108 	.globl _ET2
+                            109 	.globl _ESPI0
+                            110 	.globl _EA
+                            111 	.globl _RI0
+                            112 	.globl _TI0
+                            113 	.globl _RB80
+                            114 	.globl _TB80
+                            115 	.globl _REN0
+                            116 	.globl _MCE0
+                            117 	.globl _S0MODE
+                            118 	.globl _IT0
+                            119 	.globl _IE0
+                            120 	.globl _IT1
+                            121 	.globl _IE1
+                            122 	.globl _TR0
+                            123 	.globl _TF0
+                            124 	.globl _TR1
+                            125 	.globl _TF1
+                            126 	.globl _PCA0CP4
+                            127 	.globl _PCA0CP0
+                            128 	.globl _PCA0
+                            129 	.globl _PCA0CP3
+                            130 	.globl _PCA0CP2
+                            131 	.globl _PCA0CP1
+                            132 	.globl _PCA0CP5
+                            133 	.globl _TMR2
+                            134 	.globl _TMR2RL
+                            135 	.globl _ADC0LT
+                            136 	.globl _ADC0GT
+                            137 	.globl _ADC0
+                            138 	.globl _TMR3
+                            139 	.globl _TMR3RL
+                            140 	.globl _TOFF
+                            141 	.globl _DP
+                            142 	.globl _VDM0CN
+                            143 	.globl _PCA0CPH4
+                            144 	.globl _PCA0CPL4
+                            145 	.globl _PCA0CPH0
+                            146 	.globl _PCA0CPL0
+                            147 	.globl _PCA0H
+                            148 	.globl _PCA0L
+                            149 	.globl _SPI0CN
+                            150 	.globl _EIP2
+                            151 	.globl _EIP1
+                            152 	.globl _SMB0ADM
+                            153 	.globl _SMB0ADR
+                            154 	.globl _P2MDIN
+                            155 	.globl _P1MDIN
+                            156 	.globl _P0MDIN
+                            157 	.globl _B
+                            158 	.globl _RSTSRC
+                            159 	.globl _PCA0CPH3
+                            160 	.globl _PCA0CPL3
+                            161 	.globl _PCA0CPH2
+                            162 	.globl _PCA0CPL2
+                            163 	.globl _PCA0CPH1
+                            164 	.globl _PCA0CPL1
+                            165 	.globl _ADC0CN
+                            166 	.globl _EIE2
+                            167 	.globl _EIE1
+                            168 	.globl _FLWR
+                            169 	.globl _IT01CF
+                            170 	.globl _XBR2
+                            171 	.globl _XBR1
+                            172 	.globl _XBR0
+                            173 	.globl _ACC
+                            174 	.globl _PCA0PWM
+                            175 	.globl _PCA0CPM4
+                            176 	.globl _PCA0CPM3
+                            177 	.globl _PCA0CPM2
+                            178 	.globl _PCA0CPM1
+                            179 	.globl _PCA0CPM0
+                            180 	.globl _PCA0MD
+                            181 	.globl _PCA0CN
+                            182 	.globl _P0MAT
+                            183 	.globl _P2SKIP
+                            184 	.globl _P1SKIP
+                            185 	.globl _P0SKIP
+                            186 	.globl _PCA0CPH5
+                            187 	.globl _PCA0CPL5
+                            188 	.globl _REF0CN
+                            189 	.globl _PSW
+                            190 	.globl _P1MAT
+                            191 	.globl _PCA0CPM5
+                            192 	.globl _TMR2H
+                            193 	.globl _TMR2L
+                            194 	.globl _TMR2RLH
+                            195 	.globl _TMR2RLL
+                            196 	.globl _REG0CN
+                            197 	.globl _TMR2CN
+                            198 	.globl _P0MASK
+                            199 	.globl _ADC0LTH
+                            200 	.globl _ADC0LTL
+                            201 	.globl _ADC0GTH
+                            202 	.globl _ADC0GTL
+                            203 	.globl _SMB0DAT
+                            204 	.globl _SMB0CF
+                            205 	.globl _SMB0CN
+                            206 	.globl _P1MASK
+                            207 	.globl _ADC0H
+                            208 	.globl _ADC0L
+                            209 	.globl _ADC0TK
+                            210 	.globl _ADC0CF
+                            211 	.globl _ADC0MX
+                            212 	.globl _ADC0PWR
+                            213 	.globl _ADC0AC
+                            214 	.globl _IREF0CN
+                            215 	.globl _IP
+                            216 	.globl _FLKEY
+                            217 	.globl _FLSCL
+                            218 	.globl _PMU0CF
+                            219 	.globl _OSCICL
+                            220 	.globl _OSCICN
+                            221 	.globl _OSCXCN
+                            222 	.globl _SPI1CN
+                            223 	.globl _ONESHOT
+                            224 	.globl _EMI0TC
+                            225 	.globl _RTC0KEY
+                            226 	.globl _RTC0DAT
+                            227 	.globl _RTC0ADR
+                            228 	.globl _EMI0CF
+                            229 	.globl _EMI0CN
+                            230 	.globl _CLKSEL
+                            231 	.globl _IE
+                            232 	.globl _SFRPAGE
+                            233 	.globl _P2DRV
+                            234 	.globl _P2MDOUT
+                            235 	.globl _P1DRV
+                            236 	.globl _P1MDOUT
+                            237 	.globl _P0DRV
+                            238 	.globl _P0MDOUT
+                            239 	.globl _SPI0DAT
+                            240 	.globl _SPI0CKR
+                            241 	.globl _SPI0CFG
+                            242 	.globl _P2
+                            243 	.globl _CPT0MX
+                            244 	.globl _CPT1MX
+                            245 	.globl _CPT0MD
+                            246 	.globl _CPT1MD
+                            247 	.globl _CPT0CN
+                            248 	.globl _CPT1CN
+                            249 	.globl _SBUF0
+                            250 	.globl _SCON0
+                            251 	.globl _CRC0CNT
+                            252 	.globl _DC0CN
+                            253 	.globl _CRC0AUTO
+                            254 	.globl _DC0CF
+                            255 	.globl _TMR3H
+                            256 	.globl _CRC0FLIP
+                            257 	.globl _TMR3L
+                            258 	.globl _CRC0IN
+                            259 	.globl _TMR3RLH
+                            260 	.globl _CRC0CN
+                            261 	.globl _TMR3RLL
+                            262 	.globl _CRC0DAT
+                            263 	.globl _TMR3CN
+                            264 	.globl _P1
+                            265 	.globl _PSCTL
+                            266 	.globl _CKCON
+                            267 	.globl _TH1
+                            268 	.globl _TH0
+                            269 	.globl _TL1
+                            270 	.globl _TL0
+                            271 	.globl _TMOD
+                            272 	.globl _TCON
+                            273 	.globl _PCON
+                            274 	.globl _TOFFH
+                            275 	.globl _SPI1DAT
+                            276 	.globl _TOFFL
+                            277 	.globl _SPI1CKR
+                            278 	.globl _SPI1CFG
+                            279 	.globl _DPH
+                            280 	.globl _DPL
+                            281 	.globl _SP
+                            282 	.globl _P0
+                            283 	.globl _Port_Match_Wakeup
+                            284 	.globl _Comparator_Wakeup
+                            285 	.globl _RTC_Failure
+                            286 	.globl _RTC_Alarm
+                            287 	.globl _PMU0CF_Local
+                            288 	.globl _RTC0CN_Local
+                            289 	.globl _LPM_Init
+                            290 	.globl _LPM_Enable_Wakeup
+                            291 	.globl _LPM
+                            292 	.globl _OSCILLATOR_Init
+                            293 	.globl _RTC_Read
+                            294 	.globl _RTC_Write
+                            295 	.globl _RTC_WriteAlarm
+                            296 	.globl _RTC0CN_SetBits
+                            297 	.globl _RTC_Init
+                            298 ;--------------------------------------------------------
+                            299 ; special function registers
+                            300 ;--------------------------------------------------------
+                            301 	.area RSEG    (ABS,DATA)
+   0000                     302 	.org 0x0000
+                    0080    303 G$P0$0$0 == 0x0080
+                    0080    304 _P0	=	0x0080
+                    0081    305 G$SP$0$0 == 0x0081
+                    0081    306 _SP	=	0x0081
+                    0082    307 G$DPL$0$0 == 0x0082
+                    0082    308 _DPL	=	0x0082
+                    0083    309 G$DPH$0$0 == 0x0083
+                    0083    310 _DPH	=	0x0083
+                    0084    311 G$SPI1CFG$0$0 == 0x0084
+                    0084    312 _SPI1CFG	=	0x0084
+                    0085    313 G$SPI1CKR$0$0 == 0x0085
+                    0085    314 _SPI1CKR	=	0x0085
+                    0085    315 G$TOFFL$0$0 == 0x0085
+                    0085    316 _TOFFL	=	0x0085
+                    0086    317 G$SPI1DAT$0$0 == 0x0086
+                    0086    318 _SPI1DAT	=	0x0086
+                    0086    319 G$TOFFH$0$0 == 0x0086
+                    0086    320 _TOFFH	=	0x0086
+                    0087    321 G$PCON$0$0 == 0x0087
+                    0087    322 _PCON	=	0x0087
+                    0088    323 G$TCON$0$0 == 0x0088
+                    0088    324 _TCON	=	0x0088
+                    0089    325 G$TMOD$0$0 == 0x0089
+                    0089    326 _TMOD	=	0x0089
+                    008A    327 G$TL0$0$0 == 0x008a
+                    008A    328 _TL0	=	0x008a
+                    008B    329 G$TL1$0$0 == 0x008b
+                    008B    330 _TL1	=	0x008b
+                    008C    331 G$TH0$0$0 == 0x008c
+                    008C    332 _TH0	=	0x008c
+                    008D    333 G$TH1$0$0 == 0x008d
+                    008D    334 _TH1	=	0x008d
+                    008E    335 G$CKCON$0$0 == 0x008e
+                    008E    336 _CKCON	=	0x008e
+                    008F    337 G$PSCTL$0$0 == 0x008f
+                    008F    338 _PSCTL	=	0x008f
+                    0090    339 G$P1$0$0 == 0x0090
+                    0090    340 _P1	=	0x0090
+                    0091    341 G$TMR3CN$0$0 == 0x0091
+                    0091    342 _TMR3CN	=	0x0091
+                    0091    343 G$CRC0DAT$0$0 == 0x0091
+                    0091    344 _CRC0DAT	=	0x0091
+                    0092    345 G$TMR3RLL$0$0 == 0x0092
+                    0092    346 _TMR3RLL	=	0x0092
+                    0092    347 G$CRC0CN$0$0 == 0x0092
+                    0092    348 _CRC0CN	=	0x0092
+                    0093    349 G$TMR3RLH$0$0 == 0x0093
+                    0093    350 _TMR3RLH	=	0x0093
+                    0093    351 G$CRC0IN$0$0 == 0x0093
+                    0093    352 _CRC0IN	=	0x0093
+                    0094    353 G$TMR3L$0$0 == 0x0094
+                    0094    354 _TMR3L	=	0x0094
+                    0095    355 G$CRC0FLIP$0$0 == 0x0095
+                    0095    356 _CRC0FLIP	=	0x0095
+                    0095    357 G$TMR3H$0$0 == 0x0095
+                    0095    358 _TMR3H	=	0x0095
+                    0096    359 G$DC0CF$0$0 == 0x0096
+                    0096    360 _DC0CF	=	0x0096
+                    0096    361 G$CRC0AUTO$0$0 == 0x0096
+                    0096    362 _CRC0AUTO	=	0x0096
+                    0097    363 G$DC0CN$0$0 == 0x0097
+                    0097    364 _DC0CN	=	0x0097
+                    0097    365 G$CRC0CNT$0$0 == 0x0097
+                    0097    366 _CRC0CNT	=	0x0097
+                    0098    367 G$SCON0$0$0 == 0x0098
+                    0098    368 _SCON0	=	0x0098
+                    0099    369 G$SBUF0$0$0 == 0x0099
+                    0099    370 _SBUF0	=	0x0099
+                    009A    371 G$CPT1CN$0$0 == 0x009a
+                    009A    372 _CPT1CN	=	0x009a
+                    009B    373 G$CPT0CN$0$0 == 0x009b
+                    009B    374 _CPT0CN	=	0x009b
+                    009C    375 G$CPT1MD$0$0 == 0x009c
+                    009C    376 _CPT1MD	=	0x009c
+                    009D    377 G$CPT0MD$0$0 == 0x009d
+                    009D    378 _CPT0MD	=	0x009d
+                    009E    379 G$CPT1MX$0$0 == 0x009e
+                    009E    380 _CPT1MX	=	0x009e
+                    009F    381 G$CPT0MX$0$0 == 0x009f
+                    009F    382 _CPT0MX	=	0x009f
+                    00A0    383 G$P2$0$0 == 0x00a0
+                    00A0    384 _P2	=	0x00a0
+                    00A1    385 G$SPI0CFG$0$0 == 0x00a1
+                    00A1    386 _SPI0CFG	=	0x00a1
+                    00A2    387 G$SPI0CKR$0$0 == 0x00a2
+                    00A2    388 _SPI0CKR	=	0x00a2
+                    00A3    389 G$SPI0DAT$0$0 == 0x00a3
+                    00A3    390 _SPI0DAT	=	0x00a3
+                    00A4    391 G$P0MDOUT$0$0 == 0x00a4
+                    00A4    392 _P0MDOUT	=	0x00a4
+                    00A4    393 G$P0DRV$0$0 == 0x00a4
+                    00A4    394 _P0DRV	=	0x00a4
+                    00A5    395 G$P1MDOUT$0$0 == 0x00a5
+                    00A5    396 _P1MDOUT	=	0x00a5
+                    00A5    397 G$P1DRV$0$0 == 0x00a5
+                    00A5    398 _P1DRV	=	0x00a5
+                    00A6    399 G$P2MDOUT$0$0 == 0x00a6
+                    00A6    400 _P2MDOUT	=	0x00a6
+                    00A6    401 G$P2DRV$0$0 == 0x00a6
+                    00A6    402 _P2DRV	=	0x00a6
+                    00A7    403 G$SFRPAGE$0$0 == 0x00a7
+                    00A7    404 _SFRPAGE	=	0x00a7
+                    00A8    405 G$IE$0$0 == 0x00a8
+                    00A8    406 _IE	=	0x00a8
+                    00A9    407 G$CLKSEL$0$0 == 0x00a9
+                    00A9    408 _CLKSEL	=	0x00a9
+                    00AA    409 G$EMI0CN$0$0 == 0x00aa
+                    00AA    410 _EMI0CN	=	0x00aa
+                    00AB    411 G$EMI0CF$0$0 == 0x00ab
+                    00AB    412 _EMI0CF	=	0x00ab
+                    00AC    413 G$RTC0ADR$0$0 == 0x00ac
+                    00AC    414 _RTC0ADR	=	0x00ac
+                    00AD    415 G$RTC0DAT$0$0 == 0x00ad
+                    00AD    416 _RTC0DAT	=	0x00ad
+                    00AE    417 G$RTC0KEY$0$0 == 0x00ae
+                    00AE    418 _RTC0KEY	=	0x00ae
+                    00AF    419 G$EMI0TC$0$0 == 0x00af
+                    00AF    420 _EMI0TC	=	0x00af
+                    00AF    421 G$ONESHOT$0$0 == 0x00af
+                    00AF    422 _ONESHOT	=	0x00af
+                    00B0    423 G$SPI1CN$0$0 == 0x00b0
+                    00B0    424 _SPI1CN	=	0x00b0
+                    00B1    425 G$OSCXCN$0$0 == 0x00b1
+                    00B1    426 _OSCXCN	=	0x00b1
+                    00B2    427 G$OSCICN$0$0 == 0x00b2
+                    00B2    428 _OSCICN	=	0x00b2
+                    00B3    429 G$OSCICL$0$0 == 0x00b3
+                    00B3    430 _OSCICL	=	0x00b3
+                    00B5    431 G$PMU0CF$0$0 == 0x00b5
+                    00B5    432 _PMU0CF	=	0x00b5
+                    00B6    433 G$FLSCL$0$0 == 0x00b6
+                    00B6    434 _FLSCL	=	0x00b6
+                    00B7    435 G$FLKEY$0$0 == 0x00b7
+                    00B7    436 _FLKEY	=	0x00b7
+                    00B8    437 G$IP$0$0 == 0x00b8
+                    00B8    438 _IP	=	0x00b8
+                    00B9    439 G$IREF0CN$0$0 == 0x00b9
+                    00B9    440 _IREF0CN	=	0x00b9
+                    00BA    441 G$ADC0AC$0$0 == 0x00ba
+                    00BA    442 _ADC0AC	=	0x00ba
+                    00BA    443 G$ADC0PWR$0$0 == 0x00ba
+                    00BA    444 _ADC0PWR	=	0x00ba
+                    00BB    445 G$ADC0MX$0$0 == 0x00bb
+                    00BB    446 _ADC0MX	=	0x00bb
+                    00BC    447 G$ADC0CF$0$0 == 0x00bc
+                    00BC    448 _ADC0CF	=	0x00bc
+                    00BD    449 G$ADC0TK$0$0 == 0x00bd
+                    00BD    450 _ADC0TK	=	0x00bd
+                    00BD    451 G$ADC0L$0$0 == 0x00bd
+                    00BD    452 _ADC0L	=	0x00bd
+                    00BE    453 G$ADC0H$0$0 == 0x00be
+                    00BE    454 _ADC0H	=	0x00be
+                    00BF    455 G$P1MASK$0$0 == 0x00bf
+                    00BF    456 _P1MASK	=	0x00bf
+                    00C0    457 G$SMB0CN$0$0 == 0x00c0
+                    00C0    458 _SMB0CN	=	0x00c0
+                    00C1    459 G$SMB0CF$0$0 == 0x00c1
+                    00C1    460 _SMB0CF	=	0x00c1
+                    00C2    461 G$SMB0DAT$0$0 == 0x00c2
+                    00C2    462 _SMB0DAT	=	0x00c2
+                    00C3    463 G$ADC0GTL$0$0 == 0x00c3
+                    00C3    464 _ADC0GTL	=	0x00c3
+                    00C4    465 G$ADC0GTH$0$0 == 0x00c4
+                    00C4    466 _ADC0GTH	=	0x00c4
+                    00C5    467 G$ADC0LTL$0$0 == 0x00c5
+                    00C5    468 _ADC0LTL	=	0x00c5
+                    00C6    469 G$ADC0LTH$0$0 == 0x00c6
+                    00C6    470 _ADC0LTH	=	0x00c6
+                    00C7    471 G$P0MASK$0$0 == 0x00c7
+                    00C7    472 _P0MASK	=	0x00c7
+                    00C8    473 G$TMR2CN$0$0 == 0x00c8
+                    00C8    474 _TMR2CN	=	0x00c8
+                    00C9    475 G$REG0CN$0$0 == 0x00c9
+                    00C9    476 _REG0CN	=	0x00c9
+                    00CA    477 G$TMR2RLL$0$0 == 0x00ca
+                    00CA    478 _TMR2RLL	=	0x00ca
+                    00CB    479 G$TMR2RLH$0$0 == 0x00cb
+                    00CB    480 _TMR2RLH	=	0x00cb
+                    00CC    481 G$TMR2L$0$0 == 0x00cc
+                    00CC    482 _TMR2L	=	0x00cc
+                    00CD    483 G$TMR2H$0$0 == 0x00cd
+                    00CD    484 _TMR2H	=	0x00cd
+                    00CE    485 G$PCA0CPM5$0$0 == 0x00ce
+                    00CE    486 _PCA0CPM5	=	0x00ce
+                    00CF    487 G$P1MAT$0$0 == 0x00cf
+                    00CF    488 _P1MAT	=	0x00cf
+                    00D0    489 G$PSW$0$0 == 0x00d0
+                    00D0    490 _PSW	=	0x00d0
+                    00D1    491 G$REF0CN$0$0 == 0x00d1
+                    00D1    492 _REF0CN	=	0x00d1
+                    00D2    493 G$PCA0CPL5$0$0 == 0x00d2
+                    00D2    494 _PCA0CPL5	=	0x00d2
+                    00D3    495 G$PCA0CPH5$0$0 == 0x00d3
+                    00D3    496 _PCA0CPH5	=	0x00d3
+                    00D4    497 G$P0SKIP$0$0 == 0x00d4
+                    00D4    498 _P0SKIP	=	0x00d4
+                    00D5    499 G$P1SKIP$0$0 == 0x00d5
+                    00D5    500 _P1SKIP	=	0x00d5
+                    00D6    501 G$P2SKIP$0$0 == 0x00d6
+                    00D6    502 _P2SKIP	=	0x00d6
+                    00D7    503 G$P0MAT$0$0 == 0x00d7
+                    00D7    504 _P0MAT	=	0x00d7
+                    00D8    505 G$PCA0CN$0$0 == 0x00d8
+                    00D8    506 _PCA0CN	=	0x00d8
+                    00D9    507 G$PCA0MD$0$0 == 0x00d9
+                    00D9    508 _PCA0MD	=	0x00d9
+                    00DA    509 G$PCA0CPM0$0$0 == 0x00da
+                    00DA    510 _PCA0CPM0	=	0x00da
+                    00DB    511 G$PCA0CPM1$0$0 == 0x00db
+                    00DB    512 _PCA0CPM1	=	0x00db
+                    00DC    513 G$PCA0CPM2$0$0 == 0x00dc
+                    00DC    514 _PCA0CPM2	=	0x00dc
+                    00DD    515 G$PCA0CPM3$0$0 == 0x00dd
+                    00DD    516 _PCA0CPM3	=	0x00dd
+                    00DE    517 G$PCA0CPM4$0$0 == 0x00de
+                    00DE    518 _PCA0CPM4	=	0x00de
+                    00DF    519 G$PCA0PWM$0$0 == 0x00df
+                    00DF    520 _PCA0PWM	=	0x00df
+                    00E0    521 G$ACC$0$0 == 0x00e0
+                    00E0    522 _ACC	=	0x00e0
+                    00E1    523 G$XBR0$0$0 == 0x00e1
+                    00E1    524 _XBR0	=	0x00e1
+                    00E2    525 G$XBR1$0$0 == 0x00e2
+                    00E2    526 _XBR1	=	0x00e2
+                    00E3    527 G$XBR2$0$0 == 0x00e3
+                    00E3    528 _XBR2	=	0x00e3
+                    00E4    529 G$IT01CF$0$0 == 0x00e4
+                    00E4    530 _IT01CF	=	0x00e4
+                    00E5    531 G$FLWR$0$0 == 0x00e5
+                    00E5    532 _FLWR	=	0x00e5
+                    00E6    533 G$EIE1$0$0 == 0x00e6
+                    00E6    534 _EIE1	=	0x00e6
+                    00E7    535 G$EIE2$0$0 == 0x00e7
+                    00E7    536 _EIE2	=	0x00e7
+                    00E8    537 G$ADC0CN$0$0 == 0x00e8
+                    00E8    538 _ADC0CN	=	0x00e8
+                    00E9    539 G$PCA0CPL1$0$0 == 0x00e9
+                    00E9    540 _PCA0CPL1	=	0x00e9
+                    00EA    541 G$PCA0CPH1$0$0 == 0x00ea
+                    00EA    542 _PCA0CPH1	=	0x00ea
+                    00EB    543 G$PCA0CPL2$0$0 == 0x00eb
+                    00EB    544 _PCA0CPL2	=	0x00eb
+                    00EC    545 G$PCA0CPH2$0$0 == 0x00ec
+                    00EC    546 _PCA0CPH2	=	0x00ec
+                    00ED    547 G$PCA0CPL3$0$0 == 0x00ed
+                    00ED    548 _PCA0CPL3	=	0x00ed
+                    00EE    549 G$PCA0CPH3$0$0 == 0x00ee
+                    00EE    550 _PCA0CPH3	=	0x00ee
+                    00EF    551 G$RSTSRC$0$0 == 0x00ef
+                    00EF    552 _RSTSRC	=	0x00ef
+                    00F0    553 G$B$0$0 == 0x00f0
+                    00F0    554 _B	=	0x00f0
+                    00F1    555 G$P0MDIN$0$0 == 0x00f1
+                    00F1    556 _P0MDIN	=	0x00f1
+                    00F2    557 G$P1MDIN$0$0 == 0x00f2
+                    00F2    558 _P1MDIN	=	0x00f2
+                    00F3    559 G$P2MDIN$0$0 == 0x00f3
+                    00F3    560 _P2MDIN	=	0x00f3
+                    00F4    561 G$SMB0ADR$0$0 == 0x00f4
+                    00F4    562 _SMB0ADR	=	0x00f4
+                    00F5    563 G$SMB0ADM$0$0 == 0x00f5
+                    00F5    564 _SMB0ADM	=	0x00f5
+                    00F6    565 G$EIP1$0$0 == 0x00f6
+                    00F6    566 _EIP1	=	0x00f6
+                    00F7    567 G$EIP2$0$0 == 0x00f7
+                    00F7    568 _EIP2	=	0x00f7
+                    00F8    569 G$SPI0CN$0$0 == 0x00f8
+                    00F8    570 _SPI0CN	=	0x00f8
+                    00F9    571 G$PCA0L$0$0 == 0x00f9
+                    00F9    572 _PCA0L	=	0x00f9
+                    00FA    573 G$PCA0H$0$0 == 0x00fa
+                    00FA    574 _PCA0H	=	0x00fa
+                    00FB    575 G$PCA0CPL0$0$0 == 0x00fb
+                    00FB    576 _PCA0CPL0	=	0x00fb
+                    00FC    577 G$PCA0CPH0$0$0 == 0x00fc
+                    00FC    578 _PCA0CPH0	=	0x00fc
+                    00FD    579 G$PCA0CPL4$0$0 == 0x00fd
+                    00FD    580 _PCA0CPL4	=	0x00fd
+                    00FE    581 G$PCA0CPH4$0$0 == 0x00fe
+                    00FE    582 _PCA0CPH4	=	0x00fe
+                    00FF    583 G$VDM0CN$0$0 == 0x00ff
+                    00FF    584 _VDM0CN	=	0x00ff
+                    8382    585 G$DP$0$0 == 0x8382
+                    8382    586 _DP	=	0x8382
+                    8685    587 G$TOFF$0$0 == 0x8685
+                    8685    588 _TOFF	=	0x8685
+                    9392    589 G$TMR3RL$0$0 == 0x9392
+                    9392    590 _TMR3RL	=	0x9392
+                    9594    591 G$TMR3$0$0 == 0x9594
+                    9594    592 _TMR3	=	0x9594
+                    BEBD    593 G$ADC0$0$0 == 0xbebd
+                    BEBD    594 _ADC0	=	0xbebd
+                    C4C3    595 G$ADC0GT$0$0 == 0xc4c3
+                    C4C3    596 _ADC0GT	=	0xc4c3
+                    C6C5    597 G$ADC0LT$0$0 == 0xc6c5
+                    C6C5    598 _ADC0LT	=	0xc6c5
+                    CBCA    599 G$TMR2RL$0$0 == 0xcbca
+                    CBCA    600 _TMR2RL	=	0xcbca
+                    CDCC    601 G$TMR2$0$0 == 0xcdcc
+                    CDCC    602 _TMR2	=	0xcdcc
+                    D3D2    603 G$PCA0CP5$0$0 == 0xd3d2
+                    D3D2    604 _PCA0CP5	=	0xd3d2
+                    EAE9    605 G$PCA0CP1$0$0 == 0xeae9
+                    EAE9    606 _PCA0CP1	=	0xeae9
+                    ECEB    607 G$PCA0CP2$0$0 == 0xeceb
+                    ECEB    608 _PCA0CP2	=	0xeceb
+                    EEED    609 G$PCA0CP3$0$0 == 0xeeed
+                    EEED    610 _PCA0CP3	=	0xeeed
+                    FAF9    611 G$PCA0$0$0 == 0xfaf9
+                    FAF9    612 _PCA0	=	0xfaf9
+                    FCFB    613 G$PCA0CP0$0$0 == 0xfcfb
+                    FCFB    614 _PCA0CP0	=	0xfcfb
+                    FEFD    615 G$PCA0CP4$0$0 == 0xfefd
+                    FEFD    616 _PCA0CP4	=	0xfefd
+                            617 ;--------------------------------------------------------
+                            618 ; special function bits
+                            619 ;--------------------------------------------------------
+                            620 	.area RSEG    (ABS,DATA)
+   0000                     621 	.org 0x0000
+                    008F    622 G$TF1$0$0 == 0x008f
+                    008F    623 _TF1	=	0x008f
+                    008E    624 G$TR1$0$0 == 0x008e
+                    008E    625 _TR1	=	0x008e
+                    008D    626 G$TF0$0$0 == 0x008d
+                    008D    627 _TF0	=	0x008d
+                    008C    628 G$TR0$0$0 == 0x008c
+                    008C    629 _TR0	=	0x008c
+                    008B    630 G$IE1$0$0 == 0x008b
+                    008B    631 _IE1	=	0x008b
+                    008A    632 G$IT1$0$0 == 0x008a
+                    008A    633 _IT1	=	0x008a
+                    0089    634 G$IE0$0$0 == 0x0089
+                    0089    635 _IE0	=	0x0089
+                    0088    636 G$IT0$0$0 == 0x0088
+                    0088    637 _IT0	=	0x0088
+                    009F    638 G$S0MODE$0$0 == 0x009f
+                    009F    639 _S0MODE	=	0x009f
+                    009D    640 G$MCE0$0$0 == 0x009d
+                    009D    641 _MCE0	=	0x009d
+                    009C    642 G$REN0$0$0 == 0x009c
+                    009C    643 _REN0	=	0x009c
+                    009B    644 G$TB80$0$0 == 0x009b
+                    009B    645 _TB80	=	0x009b
+                    009A    646 G$RB80$0$0 == 0x009a
+                    009A    647 _RB80	=	0x009a
+                    0099    648 G$TI0$0$0 == 0x0099
+                    0099    649 _TI0	=	0x0099
+                    0098    650 G$RI0$0$0 == 0x0098
+                    0098    651 _RI0	=	0x0098
+                    00AF    652 G$EA$0$0 == 0x00af
+                    00AF    653 _EA	=	0x00af
+                    00AE    654 G$ESPI0$0$0 == 0x00ae
+                    00AE    655 _ESPI0	=	0x00ae
+                    00AD    656 G$ET2$0$0 == 0x00ad
+                    00AD    657 _ET2	=	0x00ad
+                    00AC    658 G$ES0$0$0 == 0x00ac
+                    00AC    659 _ES0	=	0x00ac
+                    00AB    660 G$ET1$0$0 == 0x00ab
+                    00AB    661 _ET1	=	0x00ab
+                    00AA    662 G$EX1$0$0 == 0x00aa
+                    00AA    663 _EX1	=	0x00aa
+                    00A9    664 G$ET0$0$0 == 0x00a9
+                    00A9    665 _ET0	=	0x00a9
+                    00A8    666 G$EX0$0$0 == 0x00a8
+                    00A8    667 _EX0	=	0x00a8
+                    00B7    668 G$SPIF1$0$0 == 0x00b7
+                    00B7    669 _SPIF1	=	0x00b7
+                    00B6    670 G$WCOL1$0$0 == 0x00b6
+                    00B6    671 _WCOL1	=	0x00b6
+                    00B5    672 G$MODF1$0$0 == 0x00b5
+                    00B5    673 _MODF1	=	0x00b5
+                    00B4    674 G$RXOVRN1$0$0 == 0x00b4
+                    00B4    675 _RXOVRN1	=	0x00b4
+                    00B3    676 G$NSS1MD1$0$0 == 0x00b3
+                    00B3    677 _NSS1MD1	=	0x00b3
+                    00B2    678 G$NSS1MD0$0$0 == 0x00b2
+                    00B2    679 _NSS1MD0	=	0x00b2
+                    00B1    680 G$TXBMT1$0$0 == 0x00b1
+                    00B1    681 _TXBMT1	=	0x00b1
+                    00B0    682 G$SPI1EN$0$0 == 0x00b0
+                    00B0    683 _SPI1EN	=	0x00b0
+                    00BE    684 G$PSPI0$0$0 == 0x00be
+                    00BE    685 _PSPI0	=	0x00be
+                    00BD    686 G$PT2$0$0 == 0x00bd
+                    00BD    687 _PT2	=	0x00bd
+                    00BC    688 G$PS0$0$0 == 0x00bc
+                    00BC    689 _PS0	=	0x00bc
+                    00BB    690 G$PT1$0$0 == 0x00bb
+                    00BB    691 _PT1	=	0x00bb
+                    00BA    692 G$PX1$0$0 == 0x00ba
+                    00BA    693 _PX1	=	0x00ba
+                    00B9    694 G$PT0$0$0 == 0x00b9
+                    00B9    695 _PT0	=	0x00b9
+                    00B8    696 G$PX0$0$0 == 0x00b8
+                    00B8    697 _PX0	=	0x00b8
+                    00C7    698 G$MASTER$0$0 == 0x00c7
+                    00C7    699 _MASTER	=	0x00c7
+                    00C6    700 G$TXMODE$0$0 == 0x00c6
+                    00C6    701 _TXMODE	=	0x00c6
+                    00C5    702 G$STA$0$0 == 0x00c5
+                    00C5    703 _STA	=	0x00c5
+                    00C4    704 G$STO$0$0 == 0x00c4
+                    00C4    705 _STO	=	0x00c4
+                    00C3    706 G$ACKRQ$0$0 == 0x00c3
+                    00C3    707 _ACKRQ	=	0x00c3
+                    00C2    708 G$ARBLOST$0$0 == 0x00c2
+                    00C2    709 _ARBLOST	=	0x00c2
+                    00C1    710 G$ACK$0$0 == 0x00c1
+                    00C1    711 _ACK	=	0x00c1
+                    00C0    712 G$SI$0$0 == 0x00c0
+                    00C0    713 _SI	=	0x00c0
+                    00CF    714 G$TF2H$0$0 == 0x00cf
+                    00CF    715 _TF2H	=	0x00cf
+                    00CE    716 G$TF2L$0$0 == 0x00ce
+                    00CE    717 _TF2L	=	0x00ce
+                    00CD    718 G$TF2LEN$0$0 == 0x00cd
+                    00CD    719 _TF2LEN	=	0x00cd
+                    00CC    720 G$TF2CEN$0$0 == 0x00cc
+                    00CC    721 _TF2CEN	=	0x00cc
+                    00CB    722 G$T2SPLIT$0$0 == 0x00cb
+                    00CB    723 _T2SPLIT	=	0x00cb
+                    00CA    724 G$TR2$0$0 == 0x00ca
+                    00CA    725 _TR2	=	0x00ca
+                    00C9    726 G$T2RCLK$0$0 == 0x00c9
+                    00C9    727 _T2RCLK	=	0x00c9
+                    00C8    728 G$T2XCLK$0$0 == 0x00c8
+                    00C8    729 _T2XCLK	=	0x00c8
+                    00D7    730 G$CY$0$0 == 0x00d7
+                    00D7    731 _CY	=	0x00d7
+                    00D6    732 G$AC$0$0 == 0x00d6
+                    00D6    733 _AC	=	0x00d6
+                    00D5    734 G$F0$0$0 == 0x00d5
+                    00D5    735 _F0	=	0x00d5
+                    00D4    736 G$RS1$0$0 == 0x00d4
+                    00D4    737 _RS1	=	0x00d4
+                    00D3    738 G$RS0$0$0 == 0x00d3
+                    00D3    739 _RS0	=	0x00d3
+                    00D2    740 G$OV$0$0 == 0x00d2
+                    00D2    741 _OV	=	0x00d2
+                    00D1    742 G$F1$0$0 == 0x00d1
+                    00D1    743 _F1	=	0x00d1
+                    00D0    744 G$P$0$0 == 0x00d0
+                    00D0    745 _P	=	0x00d0
+                    00DF    746 G$CF$0$0 == 0x00df
+                    00DF    747 _CF	=	0x00df
+                    00DE    748 G$CR$0$0 == 0x00de
+                    00DE    749 _CR	=	0x00de
+                    00DD    750 G$CCF5$0$0 == 0x00dd
+                    00DD    751 _CCF5	=	0x00dd
+                    00DC    752 G$CCF4$0$0 == 0x00dc
+                    00DC    753 _CCF4	=	0x00dc
+                    00DB    754 G$CCF3$0$0 == 0x00db
+                    00DB    755 _CCF3	=	0x00db
+                    00DA    756 G$CCF2$0$0 == 0x00da
+                    00DA    757 _CCF2	=	0x00da
+                    00D9    758 G$CCF1$0$0 == 0x00d9
+                    00D9    759 _CCF1	=	0x00d9
+                    00D8    760 G$CCF0$0$0 == 0x00d8
+                    00D8    761 _CCF0	=	0x00d8
+                    00EF    762 G$AD0EN$0$0 == 0x00ef
+                    00EF    763 _AD0EN	=	0x00ef
+                    00EE    764 G$BURSTEN$0$0 == 0x00ee
+                    00EE    765 _BURSTEN	=	0x00ee
+                    00ED    766 G$AD0INT$0$0 == 0x00ed
+                    00ED    767 _AD0INT	=	0x00ed
+                    00EC    768 G$AD0BUSY$0$0 == 0x00ec
+                    00EC    769 _AD0BUSY	=	0x00ec
+                    00EB    770 G$AD0WINT$0$0 == 0x00eb
+                    00EB    771 _AD0WINT	=	0x00eb
+                    00EA    772 G$AD0CM2$0$0 == 0x00ea
+                    00EA    773 _AD0CM2	=	0x00ea
+                    00E9    774 G$AD0CM1$0$0 == 0x00e9
+                    00E9    775 _AD0CM1	=	0x00e9
+                    00E8    776 G$AD0CM0$0$0 == 0x00e8
+                    00E8    777 _AD0CM0	=	0x00e8
+                    00FF    778 G$SPIF0$0$0 == 0x00ff
+                    00FF    779 _SPIF0	=	0x00ff
+                    00FE    780 G$WCOL0$0$0 == 0x00fe
+                    00FE    781 _WCOL0	=	0x00fe
+                    00FD    782 G$MODF0$0$0 == 0x00fd
+                    00FD    783 _MODF0	=	0x00fd
+                    00FC    784 G$RXOVRN0$0$0 == 0x00fc
+                    00FC    785 _RXOVRN0	=	0x00fc
+                    00FB    786 G$NSS0MD1$0$0 == 0x00fb
+                    00FB    787 _NSS0MD1	=	0x00fb
+                    00FA    788 G$NSS0MD0$0$0 == 0x00fa
+                    00FA    789 _NSS0MD0	=	0x00fa
+                    00F9    790 G$TXBMT0$0$0 == 0x00f9
+                    00F9    791 _TXBMT0	=	0x00f9
+                    00F8    792 G$SPI0EN$0$0 == 0x00f8
+                    00F8    793 _SPI0EN	=	0x00f8
+                    0087    794 G$P0_7$0$0 == 0x0087
+                    0087    795 _P0_7	=	0x0087
+                    0086    796 G$P0_6$0$0 == 0x0086
+                    0086    797 _P0_6	=	0x0086
+                    0085    798 G$P0_5$0$0 == 0x0085
+                    0085    799 _P0_5	=	0x0085
+                    0084    800 G$P0_4$0$0 == 0x0084
+                    0084    801 _P0_4	=	0x0084
+                    0083    802 G$P0_3$0$0 == 0x0083
+                    0083    803 _P0_3	=	0x0083
+                    0082    804 G$P0_2$0$0 == 0x0082
+                    0082    805 _P0_2	=	0x0082
+                    0081    806 G$P0_1$0$0 == 0x0081
+                    0081    807 _P0_1	=	0x0081
+                    0080    808 G$P0_0$0$0 == 0x0080
+                    0080    809 _P0_0	=	0x0080
+                    0097    810 G$P1_7$0$0 == 0x0097
+                    0097    811 _P1_7	=	0x0097
+                    0096    812 G$P1_6$0$0 == 0x0096
+                    0096    813 _P1_6	=	0x0096
+                    0095    814 G$P1_5$0$0 == 0x0095
+                    0095    815 _P1_5	=	0x0095
+                    0094    816 G$P1_4$0$0 == 0x0094
+                    0094    817 _P1_4	=	0x0094
+                    0093    818 G$P1_3$0$0 == 0x0093
+                    0093    819 _P1_3	=	0x0093
+                    0092    820 G$P1_2$0$0 == 0x0092
+                    0092    821 _P1_2	=	0x0092
+                    0091    822 G$P1_1$0$0 == 0x0091
+                    0091    823 _P1_1	=	0x0091
+                    0090    824 G$P1_0$0$0 == 0x0090
+                    0090    825 _P1_0	=	0x0090
+                    00A7    826 G$P2_7$0$0 == 0x00a7
+                    00A7    827 _P2_7	=	0x00a7
+                    00A6    828 G$P2_6$0$0 == 0x00a6
+                    00A6    829 _P2_6	=	0x00a6
+                    00A5    830 G$P2_5$0$0 == 0x00a5
+                    00A5    831 _P2_5	=	0x00a5
+                    00A4    832 G$P2_4$0$0 == 0x00a4
+                    00A4    833 _P2_4	=	0x00a4
+                    00A3    834 G$P2_3$0$0 == 0x00a3
+                    00A3    835 _P2_3	=	0x00a3
+                    00A2    836 G$P2_2$0$0 == 0x00a2
+                    00A2    837 _P2_2	=	0x00a2
+                    00A1    838 G$P2_1$0$0 == 0x00a1
+                    00A1    839 _P2_1	=	0x00a1
+                    00A0    840 G$P2_0$0$0 == 0x00a0
+                    00A0    841 _P2_0	=	0x00a0
+                    0086    842 G$INT$0$0 == 0x0086
+                    0086    843 _INT	=	0x0086
+                    0086    844 G$PBSW$0$0 == 0x0086
+                    0086    845 _PBSW	=	0x0086
+                    0087    846 G$_SPKR$0$0 == 0x0087
+                    0087    847 __SPKR	=	0x0087
+                            848 ;--------------------------------------------------------
+                            849 ; overlayable register banks
+                            850 ;--------------------------------------------------------
+                            851 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                     852 	.ds 8
+                            853 ;--------------------------------------------------------
+                            854 ; internal ram data
+                            855 ;--------------------------------------------------------
+                            856 	.area DSEG    (DATA)
+                    0000    857 G$RTC0CN_Local$0$0==.
+   0000                     858 _RTC0CN_Local::
+   0000                     859 	.ds 1
+                    0001    860 G$PMU0CF_Local$0$0==.
+   0001                     861 _PMU0CF_Local::
+   0001                     862 	.ds 1
+                    0002    863 G$RTC_Alarm$0$0==.
+   0002                     864 _RTC_Alarm::
+   0002                     865 	.ds 1
+                    0003    866 G$RTC_Failure$0$0==.
+   0003                     867 _RTC_Failure::
+   0003                     868 	.ds 1
+                    0004    869 G$Comparator_Wakeup$0$0==.
+   0004                     870 _Comparator_Wakeup::
+   0004                     871 	.ds 1
+                    0005    872 G$Port_Match_Wakeup$0$0==.
+   0005                     873 _Port_Match_Wakeup::
+   0005                     874 	.ds 1
+                    0006    875 LSleepMode.RTC_WriteAlarm$alarm_value$1$266==.
+   0006                     876 _RTC_WriteAlarm_alarm_value_1_266:
+   0006                     877 	.ds 4
+                    000A    878 LSleepMode.RTC_WriteAlarm$sloc0$1$0==.
+   000A                     879 _RTC_WriteAlarm_sloc0_1_0:
+   000A                     880 	.ds 4
+                            881 ;--------------------------------------------------------
+                            882 ; overlayable items in internal ram 
+                            883 ;--------------------------------------------------------
+                            884 	.area	OSEG    (OVR,DATA)
+                            885 	.area	OSEG    (OVR,DATA)
+                            886 	.area	OSEG    (OVR,DATA)
+                    0000    887 LSleepMode.RTC_Write$value$1$263==.
+   0000                     888 _RTC_Write_PARM_2:
+   0000                     889 	.ds 1
+                            890 ;--------------------------------------------------------
+                            891 ; indirectly addressable internal ram data
+                            892 ;--------------------------------------------------------
+                            893 	.area ISEG    (DATA)
+                            894 ;--------------------------------------------------------
+                            895 ; absolute internal ram data
+                            896 ;--------------------------------------------------------
+                            897 	.area IABS    (ABS,DATA)
+                            898 	.area IABS    (ABS,DATA)
+                            899 ;--------------------------------------------------------
+                            900 ; bit data
+                            901 ;--------------------------------------------------------
+                            902 	.area BSEG    (BIT)
+                            903 ;--------------------------------------------------------
+                            904 ; paged external ram data
+                            905 ;--------------------------------------------------------
+                            906 	.area PSEG    (PAG,XDATA)
+                            907 ;--------------------------------------------------------
+                            908 ; external ram data
+                            909 ;--------------------------------------------------------
+                            910 	.area XSEG    (XDATA)
+                            911 ;--------------------------------------------------------
+                            912 ; absolute external ram data
+                            913 ;--------------------------------------------------------
+                            914 	.area XABS    (ABS,XDATA)
+                            915 ;--------------------------------------------------------
+                            916 ; external initialized ram data
+                            917 ;--------------------------------------------------------
+                            918 	.area XISEG   (XDATA)
+                            919 	.area HOME    (CODE)
+                            920 	.area GSINIT0 (CODE)
+                            921 	.area GSINIT1 (CODE)
+                            922 	.area GSINIT2 (CODE)
+                            923 	.area GSINIT3 (CODE)
+                            924 	.area GSINIT4 (CODE)
+                            925 	.area GSINIT5 (CODE)
+                            926 	.area GSINIT  (CODE)
+                            927 	.area GSFINAL (CODE)
+                            928 	.area CSEG    (CODE)
+                            929 ;--------------------------------------------------------
+                            930 ; global & static initialisations
+                            931 ;--------------------------------------------------------
+                            932 	.area HOME    (CODE)
+                            933 	.area GSINIT  (CODE)
+                            934 	.area GSFINAL (CODE)
+                            935 	.area GSINIT  (CODE)
+                            936 ;--------------------------------------------------------
+                            937 ; Home
+                            938 ;--------------------------------------------------------
+                            939 	.area HOME    (CODE)
+                            940 	.area HOME    (CODE)
+                            941 ;--------------------------------------------------------
+                            942 ; code
+                            943 ;--------------------------------------------------------
+                            944 	.area CSEG    (CODE)
+                            945 ;------------------------------------------------------------
+                            946 ;Allocation info for local variables in function 'LPM_Init'
+                            947 ;------------------------------------------------------------
+                    0000    948 	G$LPM_Init$0$0 ==.
+                    0000    949 	C$SleepMode.c$18$0$0 ==.
+                            950 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:18: void LPM_Init (void)
+                            951 ;	-----------------------------------------
+                            952 ;	 function LPM_Init
+                            953 ;	-----------------------------------------
+   0000                     954 _LPM_Init:
+                    0007    955 	ar7 = 0x07
+                    0006    956 	ar6 = 0x06
+                    0005    957 	ar5 = 0x05
+                    0004    958 	ar4 = 0x04
+                    0003    959 	ar3 = 0x03
+                    0002    960 	ar2 = 0x02
+                    0001    961 	ar1 = 0x01
+                    0000    962 	ar0 = 0x00
+                    0000    963 	C$SleepMode.c$20$1$247 ==.
+                            964 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:20: PMU0CF = CLEAR;
+   0000 75 B5 20            965 	mov	_PMU0CF,#0x20
+                    0003    966 	C$SleepMode.c$21$1$247 ==.
+                            967 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:21: PMU0CF_Local = 0;
+   0003 75*01 00            968 	mov	_PMU0CF_Local,#0x00
+                    0006    969 	C$SleepMode.c$22$1$247 ==.
+                            970 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:22: RTC_Alarm = 0;
+   0006 75*02 00            971 	mov	_RTC_Alarm,#0x00
+                    0009    972 	C$SleepMode.c$23$1$247 ==.
+                            973 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:23: RTC_Failure = 0;
+   0009 75*03 00            974 	mov	_RTC_Failure,#0x00
+                    000C    975 	C$SleepMode.c$24$1$247 ==.
+                            976 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:24: Comparator_Wakeup = 0;
+   000C 75*04 00            977 	mov	_Comparator_Wakeup,#0x00
+                    000F    978 	C$SleepMode.c$25$1$247 ==.
+                            979 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:25: Port_Match_Wakeup = 0;
+   000F 75*05 00            980 	mov	_Port_Match_Wakeup,#0x00
+                    0012    981 	C$SleepMode.c$26$1$247 ==.
+                            982 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:26: P2MDOUT |= 0x01;
+   0012 43 A6 01            983 	orl	_P2MDOUT,#0x01
+                    0015    984 	C$SleepMode.c$27$1$247 ==.
+                    0015    985 	XG$LPM_Init$0$0 ==.
+   0015 22                  986 	ret
+                            987 ;------------------------------------------------------------
+                            988 ;Allocation info for local variables in function 'LPM_Enable_Wakeup'
+                            989 ;------------------------------------------------------------
+                            990 ;wakeup                    Allocated to registers r7 
+                            991 ;------------------------------------------------------------
+                    0016    992 	G$LPM_Enable_Wakeup$0$0 ==.
+                    0016    993 	C$SleepMode.c$29$1$247 ==.
+                            994 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:29: void LPM_Enable_Wakeup (U8 wakeup)
+                            995 ;	-----------------------------------------
+                            996 ;	 function LPM_Enable_Wakeup
+                            997 ;	-----------------------------------------
+   0016                     998 _LPM_Enable_Wakeup:
+   0016 AF 82               999 	mov	r7,dpl
+                    0018   1000 	C$SleepMode.c$31$1$249 ==.
+                           1001 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:31: PMU0CF_Local |= (wakeup & (RTC | PORT_MATCH | COMPARATOR));
+   0018 74 0F              1002 	mov	a,#0x0F
+   001A 5F                 1003 	anl	a,r7
+   001B 42*01              1004 	orl	_PMU0CF_Local,a
+                    001D   1005 	C$SleepMode.c$32$1$249 ==.
+                    001D   1006 	XG$LPM_Enable_Wakeup$0$0 ==.
+   001D 22                 1007 	ret
+                           1008 ;------------------------------------------------------------
+                           1009 ;Allocation info for local variables in function 'LPM'
+                           1010 ;------------------------------------------------------------
+                           1011 ;mode                      Allocated to registers r7 
+                           1012 ;b                         Allocated to registers r7 
+                           1013 ;CLKSEL_save               Allocated to registers r5 
+                           1014 ;EA_save                   Allocated to registers r6 
+                           1015 ;PMU0CF_snapshot           Allocated to registers r7 
+                           1016 ;RTC0CN_snapshot           Allocated to registers r5 
+                           1017 ;------------------------------------------------------------
+                    001E   1018 	G$LPM$0$0 ==.
+                    001E   1019 	C$SleepMode.c$34$1$249 ==.
+                           1020 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:34: void LPM(U8 mode)
+                           1021 ;	-----------------------------------------
+                           1022 ;	 function LPM
+                           1023 ;	-----------------------------------------
+   001E                    1024 _LPM:
+   001E AF 82              1025 	mov	r7,dpl
+                    0020   1026 	C$SleepMode.c$43$1$251 ==.
+                           1027 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:43: EA_save = EA;
+   0020 A2 AF              1028 	mov	c,_EA
+   0022 E4                 1029 	clr	a
+   0023 33                 1030 	rlc	a
+   0024 FE                 1031 	mov	r6,a
+                    0025   1032 	C$SleepMode.c$44$1$251 ==.
+                           1033 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:44: EA = 0;
+   0025 C2 AF              1034 	clr	_EA
+                    0027   1035 	C$SleepMode.c$48$1$251 ==.
+                           1036 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:48: CLKSEL_save = CLKSEL;
+   0027 AD A9              1037 	mov	r5,_CLKSEL
+                    0029   1038 	C$SleepMode.c$49$1$251 ==.
+                           1039 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:49: CLKSEL = 0x14;
+   0029 75 A9 14           1040 	mov	_CLKSEL,#0x14
+                    002C   1041 	C$SleepMode.c$52$1$251 ==.
+                           1042 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:52: FLSCL &= ~BYPASS;                   // Clear the one-shot bypass bit
+   002C AC B6              1043 	mov	r4,_FLSCL
+   002E 74 BF              1044 	mov	a,#0xBF
+   0030 5C                 1045 	anl	a,r4
+   0031 F5 B6              1046 	mov	_FLSCL,a
+                    0033   1047 	C$SleepMode.c$53$1$251 ==.
+                           1048 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:53: FLWR  =   NON_ZERO;                 // Write a "dummy" value to FLWR
+   0033 75 E5 01           1049 	mov	_FLWR,#0x01
+                    0036   1050 	C$SleepMode.c$56$1$251 ==.
+                           1051 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:56: while(!(CLKSEL & 0x80));            // Wait until CLKRDY -> 1
+   0036                    1052 00101$:
+   0036 E5 A9              1053 	mov	a,_CLKSEL
+   0038 30 E7 FB           1054 	jnb	acc.7,00101$
+                    003B   1055 	C$SleepMode.c$62$1$251 ==.
+                           1056 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:62: PMU0CF = (mode | PMU0CF_Local);
+   003B E5*01              1057 	mov	a,_PMU0CF_Local
+   003D 4F                 1058 	orl	a,r7
+   003E F5 B5              1059 	mov	_PMU0CF,a
+                    0040   1060 	C$SleepMode.c$69$1$251 ==.
+                           1061 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:69: CLKSEL = CLKSEL_save;
+   0040 8D A9              1062 	mov	_CLKSEL,r5
+                    0042   1063 	C$SleepMode.c$79$1$251 ==.
+                           1064 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:79: PMU0CF_snapshot = PMU0CF;
+   0042 AF B5              1065 	mov	r7,_PMU0CF
+                    0044   1066 	C$SleepMode.c$80$1$251 ==.
+                           1067 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:80: PMU0CF = CLEAR;
+   0044 75 B5 20           1068 	mov	_PMU0CF,#0x20
+                    0047   1069 	C$SleepMode.c$83$1$251 ==.
+                           1070 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:83: RTC0CN_snapshot = RTC_Read(RTC0CN); 
+   0047 75 82 04           1071 	mov	dpl,#0x04
+   004A C0 07              1072 	push	ar7
+   004C C0 06              1073 	push	ar6
+   004E 12s00rA6           1074 	lcall	_RTC_Read
+   0051 AD 82              1075 	mov	r5,dpl
+   0053 D0 06              1076 	pop	ar6
+   0055 D0 07              1077 	pop	ar7
+                    0057   1078 	C$SleepMode.c$87$1$251 ==.
+                           1079 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:87: if(RTC0CN_snapshot & (ALRM) && ((PMU0CF_snapshot & RTCAWK) == 0))
+   0057 ED                 1080 	mov	a,r5
+   0058 30 E2 0B           1081 	jnb	acc.2,00107$
+   005B EF                 1082 	mov	a,r7
+   005C 20 E2 07           1083 	jb	acc.2,00107$
+                    005F   1084 	C$SleepMode.c$89$2$253 ==.
+                           1085 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:89: PMU0CF_snapshot |= PMU0CF;
+   005F E5 B5              1086 	mov	a,_PMU0CF
+   0061 42 07              1087 	orl	ar7,a
+                    0063   1088 	C$SleepMode.c$90$2$253 ==.
+                           1089 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:90: PMU0CF = CLEAR;
+   0063 75 B5 20           1090 	mov	_PMU0CF,#0x20
+   0066                    1091 00107$:
+                    0066   1092 	C$SleepMode.c$98$1$251 ==.
+                           1093 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:98: if((PMU0CF_snapshot & RTCAWK) || (RTC0CN_snapshot & ALRM))
+   0066 EF                 1094 	mov	a,r7
+   0067 20 E2 04           1095 	jb	acc.2,00109$
+   006A ED                 1096 	mov	a,r5
+   006B 30 E2 03           1097 	jnb	acc.2,00110$
+   006E                    1098 00109$:
+                    006E   1099 	C$SleepMode.c$100$2$254 ==.
+                           1100 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:100: RTC_Alarm = 1;
+   006E 75*02 01           1101 	mov	_RTC_Alarm,#0x01
+   0071                    1102 00110$:
+                    0071   1103 	C$SleepMode.c$103$1$251 ==.
+                           1104 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:103: if((PMU0CF_snapshot & RTCFWK) || (RTC0CN_snapshot & OSCFAIL))
+   0071 EF                 1105 	mov	a,r7
+   0072 20 E3 04           1106 	jb	acc.3,00112$
+   0075 ED                 1107 	mov	a,r5
+   0076 30 E5 03           1108 	jnb	acc.5,00113$
+   0079                    1109 00112$:
+                    0079   1110 	C$SleepMode.c$105$2$255 ==.
+                           1111 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:105: RTC_Failure = 1;  
+   0079 75*03 01           1112 	mov	_RTC_Failure,#0x01
+   007C                    1113 00113$:
+                    007C   1114 	C$SleepMode.c$108$1$251 ==.
+                           1115 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:108: if(PMU0CF_snapshot & PMATWK)
+   007C EF                 1116 	mov	a,r7
+   007D 30 E1 03           1117 	jnb	acc.1,00116$
+                    0080   1118 	C$SleepMode.c$110$2$256 ==.
+                           1119 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:110: Port_Match_Wakeup = 1;  
+   0080 75*05 01           1120 	mov	_Port_Match_Wakeup,#0x01
+   0083                    1121 00116$:
+                    0083   1122 	C$SleepMode.c$113$1$251 ==.
+                           1123 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:113: if(PMU0CF_snapshot & CPT0WK)
+   0083 EF                 1124 	mov	a,r7
+   0084 30 E0 03           1125 	jnb	acc.0,00118$
+                    0087   1126 	C$SleepMode.c$115$2$257 ==.
+                           1127 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:115: Comparator_Wakeup = 1;  
+   0087 75*04 01           1128 	mov	_Comparator_Wakeup,#0x01
+   008A                    1129 00118$:
+                    008A   1130 	C$SleepMode.c$119$1$251 ==.
+                           1131 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:119: EA = EA_save;
+   008A EE                 1132 	mov	a,r6
+   008B 24 FF              1133 	add	a,#0xff
+   008D 92 AF              1134 	mov	_EA,c
+                    008F   1135 	C$SleepMode.c$122$1$251 ==.
+                           1136 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:122: if(PMU0CF_snapshot & RSTWK)
+   008F EF                 1137 	mov	a,r7
+   0090 30 E4 08           1138 	jnb	acc.4,00125$
+                    0093   1139 	C$SleepMode.c$125$1$251 ==.
+                           1140 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:125: for(b = 255; b > 0; b--);
+   0093 7F FF              1141 	mov	r7,#0xFF
+   0095                    1142 00121$:
+   0095 EF                 1143 	mov	a,r7
+   0096 60 03              1144 	jz	00125$
+   0098 1F                 1145 	dec	r7
+   0099 80 FA              1146 	sjmp	00121$
+   009B                    1147 00125$:
+                    009B   1148 	C$SleepMode.c$128$1$251 ==.
+                    009B   1149 	XG$LPM$0$0 ==.
+   009B 22                 1150 	ret
+                           1151 ;------------------------------------------------------------
+                           1152 ;Allocation info for local variables in function 'OSCILLATOR_Init'
+                           1153 ;------------------------------------------------------------
+                    009C   1154 	G$OSCILLATOR_Init$0$0 ==.
+                    009C   1155 	C$SleepMode.c$130$1$251 ==.
+                           1156 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:130: void OSCILLATOR_Init (void)
+                           1157 ;	-----------------------------------------
+                           1158 ;	 function OSCILLATOR_Init
+                           1159 ;	-----------------------------------------
+   009C                    1160 _OSCILLATOR_Init:
+                    009C   1161 	C$SleepMode.c$132$1$260 ==.
+                           1162 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:132: RSTSRC = 0x06;                      // Enable missing clock detector and
+   009C 75 EF 06           1163 	mov	_RSTSRC,#0x06
+                    009F   1164 	C$SleepMode.c$134$1$260 ==.
+                           1165 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:134: CLKSEL = 0x24;                      // Select low power internal osc.
+   009F 75 A9 24           1166 	mov	_CLKSEL,#0x24
+                    00A2   1167 	C$SleepMode.c$136$1$260 ==.
+                           1168 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:136: FLSCL |= 0x40;                      // Set the BYPASS bit for operation > 10MHz
+   00A2 43 B6 40           1169 	orl	_FLSCL,#0x40
+                    00A5   1170 	C$SleepMode.c$137$1$260 ==.
+                    00A5   1171 	XG$OSCILLATOR_Init$0$0 ==.
+   00A5 22                 1172 	ret
+                           1173 ;------------------------------------------------------------
+                           1174 ;Allocation info for local variables in function 'RTC_Read'
+                           1175 ;------------------------------------------------------------
+                           1176 ;reg                       Allocated to registers r7 
+                           1177 ;------------------------------------------------------------
+                    00A6   1178 	G$RTC_Read$0$0 ==.
+                    00A6   1179 	C$SleepMode.c$139$1$260 ==.
+                           1180 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:139: U8 RTC_Read (U8 reg)
+                           1181 ;	-----------------------------------------
+                           1182 ;	 function RTC_Read
+                           1183 ;	-----------------------------------------
+   00A6                    1184 _RTC_Read:
+   00A6 AF 82              1185 	mov	r7,dpl
+                    00A8   1186 	C$SleepMode.c$142$1$262 ==.
+                           1187 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:142: RTC0ADR  = (0x90 | reg);            // pick register and set BUSY to 
+   00A8 74 90              1188 	mov	a,#0x90
+   00AA 4F                 1189 	orl	a,r7
+   00AB F5 AC              1190 	mov	_RTC0ADR,a
+                    00AD   1191 	C$SleepMode.c$144$1$262 ==.
+                           1192 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:144: NOP(); NOP(); NOP();                // delay 3 system clocks   
+   00AD 00                 1193 	NOP 
+   00AE 00                 1194 	NOP 
+   00AF 00                 1195 	NOP 
+                    00B0   1196 	C$SleepMode.c$145$1$262 ==.
+                           1197 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:145: return RTC0DAT;                     // return value
+   00B0 85 AD 82           1198 	mov	dpl,_RTC0DAT
+                    00B3   1199 	C$SleepMode.c$146$1$262 ==.
+                    00B3   1200 	XG$RTC_Read$0$0 ==.
+   00B3 22                 1201 	ret
+                           1202 ;------------------------------------------------------------
+                           1203 ;Allocation info for local variables in function 'RTC_Write'
+                           1204 ;------------------------------------------------------------
+                           1205 ;value                     Allocated with name '_RTC_Write_PARM_2'
+                           1206 ;reg                       Allocated to registers r7 
+                           1207 ;------------------------------------------------------------
+                    00B4   1208 	G$RTC_Write$0$0 ==.
+                    00B4   1209 	C$SleepMode.c$148$1$262 ==.
+                           1210 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:148: void RTC_Write (U8 reg, U8 value)
+                           1211 ;	-----------------------------------------
+                           1212 ;	 function RTC_Write
+                           1213 ;	-----------------------------------------
+   00B4                    1214 _RTC_Write:
+   00B4 AF 82              1215 	mov	r7,dpl
+                    00B6   1216 	C$SleepMode.c$150$1$264 ==.
+                           1217 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:150: RTC0ADR  = (0x10 | reg);            // pick register
+   00B6 74 10              1218 	mov	a,#0x10
+   00B8 4F                 1219 	orl	a,r7
+   00B9 F5 AC              1220 	mov	_RTC0ADR,a
+                    00BB   1221 	C$SleepMode.c$151$1$264 ==.
+                           1222 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:151: RTC0DAT = value;                    // write data
+   00BB 85*00 AD           1223 	mov	_RTC0DAT,_RTC_Write_PARM_2
+                    00BE   1224 	C$SleepMode.c$152$1$264 ==.
+                    00BE   1225 	XG$RTC_Write$0$0 ==.
+   00BE 22                 1226 	ret
+                           1227 ;------------------------------------------------------------
+                           1228 ;Allocation info for local variables in function 'RTC_WriteAlarm'
+                           1229 ;------------------------------------------------------------
+                           1230 ;alarm                     Allocated to registers r4 r5 r6 r7 
+                           1231 ;alarm_value               Allocated with name '_RTC_WriteAlarm_alarm_value_1_266'
+                           1232 ;sloc0                     Allocated with name '_RTC_WriteAlarm_sloc0_1_0'
+                           1233 ;------------------------------------------------------------
+                    00BF   1234 	G$RTC_WriteAlarm$0$0 ==.
+                    00BF   1235 	C$SleepMode.c$154$1$264 ==.
+                           1236 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:154: void RTC_WriteAlarm (U32 alarm)
+                           1237 ;	-----------------------------------------
+                           1238 ;	 function RTC_WriteAlarm
+                           1239 ;	-----------------------------------------
+   00BF                    1240 _RTC_WriteAlarm:
+                    00BF   1241 	C$SleepMode.c$158$1$266 ==.
+                           1242 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:158: alarm = alarm/60000.0 * SYSCLK;
+   00BF 12s00r00           1243 	lcall	___ulong2fs
+   00C2 85 82*0A           1244 	mov	_RTC_WriteAlarm_sloc0_1_0,dpl
+   00C5 85 83*0B           1245 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 1),dph
+   00C8 85 F0*0C           1246 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 2),b
+   00CB F5*0D              1247 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 3),a
+   00CD E4                 1248 	clr	a
+   00CE C0 E0              1249 	push	acc
+   00D0 74 60              1250 	mov	a,#0x60
+   00D2 C0 E0              1251 	push	acc
+   00D4 74 6A              1252 	mov	a,#0x6A
+   00D6 C0 E0              1253 	push	acc
+   00D8 74 47              1254 	mov	a,#0x47
+   00DA C0 E0              1255 	push	acc
+   00DC 85*0A 82           1256 	mov	dpl,_RTC_WriteAlarm_sloc0_1_0
+   00DF 85*0B 83           1257 	mov	dph,(_RTC_WriteAlarm_sloc0_1_0 + 1)
+   00E2 85*0C F0           1258 	mov	b,(_RTC_WriteAlarm_sloc0_1_0 + 2)
+   00E5 E5*0D              1259 	mov	a,(_RTC_WriteAlarm_sloc0_1_0 + 3)
+   00E7 12s00r00           1260 	lcall	___fsdiv
+   00EA 85 82*0A           1261 	mov	_RTC_WriteAlarm_sloc0_1_0,dpl
+   00ED 85 83*0B           1262 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 1),dph
+   00F0 85 F0*0C           1263 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 2),b
+   00F3 F5*0D              1264 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 3),a
+   00F5 E5 81              1265 	mov	a,sp
+   00F7 24 FC              1266 	add	a,#0xfc
+   00F9 F5 81              1267 	mov	sp,a
+   00FB C0*0A              1268 	push	_RTC_WriteAlarm_sloc0_1_0
+   00FD C0*0B              1269 	push	(_RTC_WriteAlarm_sloc0_1_0 + 1)
+   00FF C0*0C              1270 	push	(_RTC_WriteAlarm_sloc0_1_0 + 2)
+   0101 C0*0D              1271 	push	(_RTC_WriteAlarm_sloc0_1_0 + 3)
+   0103 90 BC 20           1272 	mov	dptr,#0xBC20
+   0106 75 F0 3E           1273 	mov	b,#0x3E
+   0109 74 4A              1274 	mov	a,#0x4A
+   010B 12s00r00           1275 	lcall	___fsmul
+   010E 85 82*0A           1276 	mov	_RTC_WriteAlarm_sloc0_1_0,dpl
+   0111 85 83*0B           1277 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 1),dph
+   0114 85 F0*0C           1278 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 2),b
+   0117 F5*0D              1279 	mov	(_RTC_WriteAlarm_sloc0_1_0 + 3),a
+   0119 E5 81              1280 	mov	a,sp
+   011B 24 FC              1281 	add	a,#0xfc
+   011D F5 81              1282 	mov	sp,a
+   011F 85*0A 82           1283 	mov	dpl,_RTC_WriteAlarm_sloc0_1_0
+   0122 85*0B 83           1284 	mov	dph,(_RTC_WriteAlarm_sloc0_1_0 + 1)
+   0125 85*0C F0           1285 	mov	b,(_RTC_WriteAlarm_sloc0_1_0 + 2)
+   0128 E5*0D              1286 	mov	a,(_RTC_WriteAlarm_sloc0_1_0 + 3)
+   012A 12s00r00           1287 	lcall	___fs2ulong
+   012D AC 82              1288 	mov	r4,dpl
+   012F AD 83              1289 	mov	r5,dph
+   0131 AE F0              1290 	mov	r6,b
+   0133 FF                 1291 	mov	r7,a
+                    0134   1292 	C$SleepMode.c$160$1$266 ==.
+                           1293 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:160: alarm_value.U32 = alarm;   
+   0134 8C*06              1294 	mov	(_RTC_WriteAlarm_alarm_value_1_266 + 0),r4
+   0136 8D*07              1295 	mov	(_RTC_WriteAlarm_alarm_value_1_266 + 1),r5
+   0138 8E*08              1296 	mov	(_RTC_WriteAlarm_alarm_value_1_266 + 2),r6
+   013A 8F*09              1297 	mov	(_RTC_WriteAlarm_alarm_value_1_266 + 3),r7
+                    013C   1298 	C$SleepMode.c$163$1$266 ==.
+                           1299 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:163: RTC0ADR = (0x10 | RTC0CN);
+   013C 75 AC 14           1300 	mov	_RTC0ADR,#0x14
+                    013F   1301 	C$SleepMode.c$164$1$266 ==.
+                           1302 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:164: RTC0DAT = (RTC0CN_Local & ~RTC0AEN);       
+   013F AF*00              1303 	mov	r7,_RTC0CN_Local
+   0141 74 F7              1304 	mov	a,#0xF7
+   0143 5F                 1305 	anl	a,r7
+   0144 F5 AD              1306 	mov	_RTC0DAT,a
+                    0146   1307 	C$SleepMode.c$165$1$266 ==.
+                           1308 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:165: NOP();
+   0146 00                 1309 	NOP 
+                    0147   1310 	C$SleepMode.c$168$1$266 ==.
+                           1311 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:168: RTC0ADR = (0x10 | ALARM0);       
+   0147 75 AC 18           1312 	mov	_RTC0ADR,#0x18
+                    014A   1313 	C$SleepMode.c$169$1$266 ==.
+                           1314 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:169: RTC0DAT = alarm_value.U8[b0];    // write data
+   014A 85*06 AD           1315 	mov	_RTC0DAT,_RTC_WriteAlarm_alarm_value_1_266
+                    014D   1316 	C$SleepMode.c$170$1$266 ==.
+                           1317 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:170: NOP();
+   014D 00                 1318 	NOP 
+                    014E   1319 	C$SleepMode.c$171$1$266 ==.
+                           1320 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:171: RTC0DAT = alarm_value.U8[b1];    // write data
+   014E 85*07 AD           1321 	mov	_RTC0DAT,(_RTC_WriteAlarm_alarm_value_1_266 + 0x0001)
+                    0151   1322 	C$SleepMode.c$172$1$266 ==.
+                           1323 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:172: NOP();
+   0151 00                 1324 	NOP 
+                    0152   1325 	C$SleepMode.c$173$1$266 ==.
+                           1326 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:173: RTC0DAT = alarm_value.U8[b2];    // write data
+   0152 85*08 AD           1327 	mov	_RTC0DAT,(_RTC_WriteAlarm_alarm_value_1_266 + 0x0002)
+                    0155   1328 	C$SleepMode.c$174$1$266 ==.
+                           1329 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:174: NOP(); 
+   0155 00                 1330 	NOP 
+                    0156   1331 	C$SleepMode.c$175$1$266 ==.
+                           1332 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:175: RTC0DAT = alarm_value.U8[b3];    // write data
+   0156 85*09 AD           1333 	mov	_RTC0DAT,(_RTC_WriteAlarm_alarm_value_1_266 + 0x0003)
+                    0159   1334 	C$SleepMode.c$176$1$266 ==.
+                           1335 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:176: NOP(); 
+   0159 00                 1336 	NOP 
+                    015A   1337 	C$SleepMode.c$179$1$266 ==.
+                           1338 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:179: RTC0ADR = (0x10 | RTC0CN);
+   015A 75 AC 14           1339 	mov	_RTC0ADR,#0x14
+                    015D   1340 	C$SleepMode.c$180$1$266 ==.
+                           1341 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:180: RTC0DAT = RTC0CN_Local;  
+   015D 85*00 AD           1342 	mov	_RTC0DAT,_RTC0CN_Local
+                    0160   1343 	C$SleepMode.c$181$1$266 ==.
+                    0160   1344 	XG$RTC_WriteAlarm$0$0 ==.
+   0160 22                 1345 	ret
+                           1346 ;------------------------------------------------------------
+                           1347 ;Allocation info for local variables in function 'RTC0CN_SetBits'
+                           1348 ;------------------------------------------------------------
+                           1349 ;bits                      Allocated to registers r7 
+                           1350 ;------------------------------------------------------------
+                    0161   1351 	G$RTC0CN_SetBits$0$0 ==.
+                    0161   1352 	C$SleepMode.c$183$1$266 ==.
+                           1353 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:183: void RTC0CN_SetBits(U8 bits)
+                           1354 ;	-----------------------------------------
+                           1355 ;	 function RTC0CN_SetBits
+                           1356 ;	-----------------------------------------
+   0161                    1357 _RTC0CN_SetBits:
+   0161 AF 82              1358 	mov	r7,dpl
+                    0163   1359 	C$SleepMode.c$185$1$268 ==.
+                           1360 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:185: RTC0CN_Local |= (bits & ~0x03);
+   0163 8F 06              1361 	mov	ar6,r7
+   0165 53 06 FC           1362 	anl	ar6,#0xFC
+   0168 AD*00              1363 	mov	r5,_RTC0CN_Local
+   016A EE                 1364 	mov	a,r6
+   016B 4D                 1365 	orl	a,r5
+   016C F5*00              1366 	mov	_RTC0CN_Local,a
+                    016E   1367 	C$SleepMode.c$186$1$268 ==.
+                           1368 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:186: RTC_Write( RTC0CN, RTC0CN_Local | bits);
+   016E EF                 1369 	mov	a,r7
+   016F 45*00              1370 	orl	a,_RTC0CN_Local
+   0171 F5*00              1371 	mov	_RTC_Write_PARM_2,a
+   0173 75 82 04           1372 	mov	dpl,#0x04
+   0176 12s00rB4           1373 	lcall	_RTC_Write
+                    0179   1374 	C$SleepMode.c$187$1$268 ==.
+                    0179   1375 	XG$RTC0CN_SetBits$0$0 ==.
+   0179 22                 1376 	ret
+                           1377 ;------------------------------------------------------------
+                           1378 ;Allocation info for local variables in function 'RTC_Init'
+                           1379 ;------------------------------------------------------------
+                           1380 ;i                         Allocated to registers r5 r6 
+                           1381 ;CLKSEL_SAVE               Allocated to registers r7 
+                           1382 ;RTC0PIN_READ              Allocated to registers 
+                           1383 ;------------------------------------------------------------
+                    017A   1384 	G$RTC_Init$0$0 ==.
+                    017A   1385 	C$SleepMode.c$189$1$268 ==.
+                           1386 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:189: void RTC_Init (void)
+                           1387 ;	-----------------------------------------
+                           1388 ;	 function RTC_Init
+                           1389 ;	-----------------------------------------
+   017A                    1390 _RTC_Init:
+                    017A   1391 	C$SleepMode.c$193$1$268 ==.
+                           1392 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:193: unsigned char CLKSEL_SAVE = CLKSEL;
+   017A AF A9              1393 	mov	r7,_CLKSEL
+                    017C   1394 	C$SleepMode.c$197$1$270 ==.
+                           1395 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:197: if(RTC0KEY == 0x00)
+   017C E5 AE              1396 	mov	a,_RTC0KEY
+   017E 70 06              1397 	jnz	00102$
+                    0180   1398 	C$SleepMode.c$199$2$271 ==.
+                           1399 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:199: RTC0KEY = 0xA5;                  // Unlock the smaRTClock interface
+   0180 75 AE A5           1400 	mov	_RTC0KEY,#0xA5
+                    0183   1401 	C$SleepMode.c$200$2$271 ==.
+                           1402 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:200: RTC0KEY = 0xF1;
+   0183 75 AE F1           1403 	mov	_RTC0KEY,#0xF1
+   0186                    1404 00102$:
+                    0186   1405 	C$SleepMode.c$221$1$270 ==.
+                           1406 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:221: RTC0PIN_READ = RTC_Read (RTC0PIN);
+   0186 75 82 07           1407 	mov	dpl,#0x07
+   0189 C0 07              1408 	push	ar7
+   018B 12s00rA6           1409 	lcall	_RTC_Read
+   018E E5 82              1410 	mov	a,dpl
+                    0190   1411 	C$SleepMode.c$222$1$270 ==.
+                           1412 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:222: RTC_Write (RTC0PIN, RTC0PIN_READ | 0x80);   
+   0190 44 80              1413 	orl	a,#0x80
+   0192 F5*00              1414 	mov	_RTC_Write_PARM_2,a
+   0194 75 82 07           1415 	mov	dpl,#0x07
+   0197 12s00rB4           1416 	lcall	_RTC_Write
+                    019A   1417 	C$SleepMode.c$226$1$270 ==.
+                           1418 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:226: RTC_Write (RTC0XCN, 0x08);   
+   019A 75*00 08           1419 	mov	_RTC_Write_PARM_2,#0x08
+   019D 75 82 05           1420 	mov	dpl,#0x05
+   01A0 12s00rB4           1421 	lcall	_RTC_Write
+                    01A3   1422 	C$SleepMode.c$229$1$270 ==.
+                           1423 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:229: RTC_Write (RTC0XCF, (0x00 | LOADCAP_VALUE));   
+   01A3 75*00 03           1424 	mov	_RTC_Write_PARM_2,#0x03
+   01A6 75 82 06           1425 	mov	dpl,#0x06
+   01A9 12s00rB4           1426 	lcall	_RTC_Write
+                    01AC   1427 	C$SleepMode.c$235$1$270 ==.
+                           1428 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:235: RTC_Write (RTC0CN, 0x80);           // Enable smaRTClock oscillator
+   01AC 75*00 80           1429 	mov	_RTC_Write_PARM_2,#0x80
+   01AF 75 82 04           1430 	mov	dpl,#0x04
+   01B2 12s00rB4           1431 	lcall	_RTC_Write
+                    01B5   1432 	C$SleepMode.c$236$1$270 ==.
+                           1433 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:236: CLKSEL    =  0x74;                  // Switch to 156 kHz low power
+   01B5 75 A9 74           1434 	mov	_CLKSEL,#0x74
+                    01B8   1435 	C$SleepMode.c$258$1$270 ==.
+                           1436 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:258: RTC_Write (RTC0CN, 0xC0);           // Enable missing smaRTClock detector
+   01B8 75*00 C0           1437 	mov	_RTC_Write_PARM_2,#0xC0
+   01BB 75 82 04           1438 	mov	dpl,#0x04
+   01BE 12s00rB4           1439 	lcall	_RTC_Write
+   01C1 D0 07              1440 	pop	ar7
+                    01C3   1441 	C$SleepMode.c$262$1$270 ==.
+                           1442 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:262: for (i=0x340; i!=0; i--);
+   01C3 7D 40              1443 	mov	r5,#0x40
+   01C5 7E 03              1444 	mov	r6,#0x03
+   01C7                    1445 00106$:
+   01C7 BD 00 05           1446 	cjne	r5,#0x00,00124$
+   01CA BE 00 02           1447 	cjne	r6,#0x00,00124$
+   01CD 80 07              1448 	sjmp	00109$
+   01CF                    1449 00124$:
+   01CF 1D                 1450 	dec	r5
+   01D0 BD FF 01           1451 	cjne	r5,#0xFF,00125$
+   01D3 1E                 1452 	dec	r6
+   01D4                    1453 00125$:
+   01D4 80 F1              1454 	sjmp	00106$
+   01D6                    1455 00109$:
+                    01D6   1456 	C$SleepMode.c$264$1$270 ==.
+                           1457 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:264: RTC_Write (RTC0CN, 0xC0);           // Clear the clock fail flag (precautionary).
+   01D6 75*00 C0           1458 	mov	_RTC_Write_PARM_2,#0xC0
+   01D9 75 82 04           1459 	mov	dpl,#0x04
+   01DC C0 07              1460 	push	ar7
+   01DE 12s00rB4           1461 	lcall	_RTC_Write
+   01E1 D0 07              1462 	pop	ar7
+                    01E3   1463 	C$SleepMode.c$266$1$270 ==.
+                           1464 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:266: PMU0CF = 0x20;                      // Clear PMU wake-up source flags
+   01E3 75 B5 20           1465 	mov	_PMU0CF,#0x20
+                    01E6   1466 	C$SleepMode.c$268$1$270 ==.
+                           1467 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:268: CLKSEL = CLKSEL_SAVE;               // Restore system clock
+   01E6 8F A9              1468 	mov	_CLKSEL,r7
+                    01E8   1469 	C$SleepMode.c$269$1$270 ==.
+                           1470 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:269: while(!(CLKSEL & 0x80));            // Poll CLKRDY
+   01E8                    1471 00103$:
+   01E8 E5 A9              1472 	mov	a,_CLKSEL
+   01EA 30 E7 FB           1473 	jnb	acc.7,00103$
+                    01ED   1474 	C$SleepMode.c$271$1$270 ==.
+                           1475 ;	C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:271: RTC0CN_Local = 0xC0;                // Initialize Local Copy of RTC0CN
+   01ED 75*00 C0           1476 	mov	_RTC0CN_Local,#0xC0
+                    01F0   1477 	C$SleepMode.c$272$1$270 ==.
+                    01F0   1478 	XG$RTC_Init$0$0 ==.
+   01F0 22                 1479 	ret
+                           1480 	.area CSEG    (CODE)
+                           1481 	.area CONST   (CODE)
+                           1482 	.area XINIT   (CODE)
+                           1483 	.area CABS    (ABS,CODE)

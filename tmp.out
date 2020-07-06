@@ -1,0 +1,4 @@
++ C:\PROGRA~2\SDCC\bin\sdcpp.exe -nostdinc -Wall -IC:\\SiLabs\\MCU\\Inc -IC:\\Users\\Admin\\Desktop\\INTERNSHIP\\MotionSenseNodes_V3\\MotionSenseNodes_V3 -obj-ext=.rel -D__SDCC_MODEL_SMALL -DSDCC_MODEL_SMALL -D__SDCC_FLOAT_REENT -DSDCC_FLOAT_REENT -D__SDCC=3_2_0 -DSDCC=320 -D__SDCC_REVISION=8008 -DSDCC_REVISION=8008 -D__SDCC_mcs51 -DSDCC_mcs51 -D__mcs51 -D__STDC_NO_COMPLEX__ -D__STDC_NO_THREADS__ -D__STDC_NO_ATOMICS__ -D__STDC_NO_VLA__ -isystem "C:\Program Files (x86)\SDCC\bin\..\include\mcs51" -isystem "C:\Program Files (x86)\SDCC\bin\..\include"  "C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c" 
++ C:\PROGRA~2\SDCC\bin\sdas8051.exe -plosgffwc "SleepMode.rel" "SleepMode.asm"
+C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:75: warning 126: unreachable code
+C:\Users\Admin\Desktop\INTERNSHIP\MotionSenseNodes_V3\MotionSenseNodes_V3\SleepMode.c:75: warning 126: unreachable code
